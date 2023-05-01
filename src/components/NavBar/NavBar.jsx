@@ -1,31 +1,32 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import CartWidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
-const NavBar = () => {
-    return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">RetroZone</Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="#features">Historia</Nav.Link>
-              <Nav.Link href="#pricing">Nosotros</Nav.Link>
-              <NavDropdown title="Categorias" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Indumentaria</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">
-                  Accesorios
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Calzados</NavDropdown.Item>
-              </NavDropdown>
-            </Nav>
-            <CartWidget />
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-            );
-          }
+function NavBar() {
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">My Ecommerce</Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/category/1">Category 1</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/category/2">Category 2</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/category/3">Category 3</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/cart">Cart (0)</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
 export default NavBar;
